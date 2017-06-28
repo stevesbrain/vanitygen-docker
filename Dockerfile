@@ -6,11 +6,7 @@ ENV REFRESHED_AT 2017-06-28
 
 # install dependencies
 RUN set -x \
-<<<<<<< HEAD
-	&& apk add --no-cache --virtual git libqrencode openssl-dev bash pcre-dev gegl-dev build-base build-dependencies alpine-sdk
-=======
-	&& apk add --no-cache --virtual git libqrencode openssl-dev bash pcre-dev gegl-dev build-base
->>>>>>> parent of bd94917... Missing make utils
+	&& apk add --no-cache --virtual git libqrencode openssl-dev bash pcre-dev gegl-dev build-base build-dependencies
 
 # create code directory
 WORKDIR /root
