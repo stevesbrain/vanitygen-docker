@@ -1,14 +1,17 @@
-FROM ubuntu:14.04
-RUN \
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential libtool autotools-dev autoconf libssl-dev libdb-dev libdb++-dev libboost-all-dev libpcre3 libpcre3-dev automake git && \
-  DEBIAN_FRONTEND=noninteractive apt-get remove --purge -y build-essential libtool autotools-dev autoconf libssl-dev libdb-dev libdb++-dev libboost-all-dev libpcre3 libpcre3-dev automake git && \
-  rm -rf /var/lib/apt/lists/*
+FROM alpine:3.6
+MAINTAINER VanityShed
 
+ENV GIT_URL https://github.com/samr7/vanitygen
+ENV REFRESHED_AT 2017-06-28
+
+# install dependencies
+RUN apk add --update --no-cache git libqrencode openssl-dev bash pcre-dev gegl-dev build-base
+
+# create code directory
 WORKDIR /root
-RUN git clone https://github.com/samr7/vanitygen
+RUN git clone $GIT_URL
 WORKDIR /root/vanitygen
 RUN make
 
-COPY entrypoint.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/root/vanitygen/vanitygen"]
+CMD ["--help"]
