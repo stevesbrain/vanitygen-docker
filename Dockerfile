@@ -10,5 +10,5 @@ WORKDIR /root/vanitygen
 RUN make
 
 # Define default command.
-CMD ["/root/vanitygen/vanitygen"]
-
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
