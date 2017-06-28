@@ -6,7 +6,7 @@ ENV REFRESHED_AT 2017-06-28
 
 # install dependencies
 RUN set -x \
-	&& apk add --no-cache --virtual git libqrencode openssl-dev bash pcre-dev gegl-dev build-base build-dependencies
+	&& apk add --no-cache --virtual git libqrencode openssl-dev bash pcre-dev gegl-dev build-base build-dependencies alpine-sdk
 
 # create code directory
 WORKDIR /root
