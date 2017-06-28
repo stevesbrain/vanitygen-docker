@@ -6,7 +6,7 @@ ENV REFRESHED_AT 2017-06-28
 
 # install dependencies
 RUN set -x \
-	&& apk add --no-cache git libqrencode openssl-dev bash pcre-dev gegl-dev build-base \
+	&& apk add --no-cache git libqrencode openssl-dev pcre-dev gegl-dev build-base \
 	&& cd /root \
 	&& git clone $GIT_URL \
 	&& cd /root/vanitygen \
