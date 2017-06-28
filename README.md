@@ -9,7 +9,8 @@ directory, type:
 
 ```bash
 docker build -t vanitygen .
-docker run --rm vanitygen 1stop
+# To build case insensitive BTC for example
+docker run --rm vanitygen -i 1Snoot
 ```
 
 
