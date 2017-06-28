@@ -11,7 +11,7 @@ RUN set -x \
 	&& git clone $GIT_URL \
 	&& cd /root/vanitygen \
 	&& make \
-	&& apk del --purge git libqrencode openssl-dev bash pcre-dev gegl-dev build-base
+	&& apk del --purge git build-base
 
 ENTRYPOINT ["/root/vanitygen/vanitygen"]
 CMD ["--help"]
