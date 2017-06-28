@@ -12,7 +12,7 @@ RUN set -x \
 WORKDIR /root
 RUN git clone $GIT_URL
 WORKDIR /root/vanitygen
-RUN make
+RUN /usr/bin/make
 
 ENTRYPOINT ["/root/vanitygen/vanitygen"]
 CMD ["--help"]
